@@ -144,8 +144,7 @@ async function testDirectPasswordLogin(email, password) {
     });
 
     const text = await res.text();
-    console.log("DIRECT LOGIN STATUS:", res.status);
-    console.log("DIRECT LOGIN BODY:", text);
+   
 
     return {
       ok: res.ok,
@@ -165,8 +164,7 @@ async function loadUserState() {
   try {
     const { data: sessionData, error: sessionError } = await supabaseClient.auth.getSession();
 
-    console.log("SESSION DATA:", sessionData);
-    console.log("SESSION ERROR:", sessionError);
+   
 
     if (sessionError || !sessionData.session) {
       currentUser = null;
@@ -221,8 +219,7 @@ async function handleSignUp() {
       password
     });
 
-    console.log("SIGNUP DATA:", data);
-    console.log("SIGNUP ERROR:", error);
+    
 
     if (error) {
       authStatus.textContent = `Sign up error: ${error.message}`;
@@ -301,8 +298,7 @@ async function handleLogin() {
       password
     });
 
-    console.log("SDK LOGIN DATA:", data);
-    console.log("SDK LOGIN ERROR:", error);
+   
 
     if (error) {
       authStatus.textContent = `SDK login error: ${error.message}`;
