@@ -1,0 +1,353 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+  padding: 20px;
+  color: white;
+}
+
+/* TOP RIGHT PROFILE BAR */
+.top-bar {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1001;
+}
+
+#loginState {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #facc15;
+  background: rgba(15, 23, 42, 0.85);
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+#profileIcon {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #38bdf8;
+  color: #082f49;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+#profileIcon:hover {
+  transform: scale(1.08);
+  opacity: 0.95;
+}
+
+.hidden {
+  display: none;
+}
+
+.auth-popup {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: min(92vw, 380px);
+  z-index: 1000;
+}
+
+.page-wrap {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 55px;
+}
+
+.auth-panel {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+  position: relative;
+  z-index: 2;
+}
+
+.auth-panel h2 {
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.auth-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.auth-fields input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: white;
+  color: #111827;
+  font-size: 0.95rem;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.auth-buttons button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  background: #22c55e;
+  color: #052e16;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.auth-buttons button:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.auth-status {
+  text-align: center;
+}
+
+#authStatus {
+  margin-bottom: 6px;
+}
+
+#premiumStatus {
+  font-weight: bold;
+}
+
+.premium-on {
+  color: #4ade80;
+}
+
+.premium-off {
+  color: #facc15;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 25px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.top-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.control-box {
+  background: rgba(255,255,255,0.08);
+  padding: 14px;
+  border-radius: 14px;
+}
+
+.control-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.control-box select,
+.control-box input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  color: #111827;
+  font-size: 0.95rem;
+}
+
+.premium-box.locked {
+  outline: 2px solid rgba(250, 204, 21, 0.45);
+}
+
+.premium-box.unlocked {
+  outline: 2px solid rgba(74, 222, 128, 0.45);
+}
+
+.premium-note {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #facc15;
+}
+
+.saved-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.saved-buttons button,
+.button-row button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  background: #38bdf8;
+  color: #082f49;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.saved-buttons button:hover,
+.button-row button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.status-bar {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.status-bar p {
+  margin: 6px 0;
+  font-size: 1rem;
+}
+
+#message {
+  font-weight: bold;
+  color: #facc15;
+}
+
+#puzzleBoard {
+  width: min(90vw, 600px);
+  height: min(90vw, 600px);
+  margin: 0 auto;
+  background: rgba(255,255,255,0.06);
+  border: 4px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  display: grid;
+  gap: 2px;
+  overflow: hidden;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.35);
+}
+
+.tile {
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  background-repeat: no-repeat;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.tile:hover {
+  transform: scale(0.98);
+  filter: brightness(1.08);
+}
+
+.empty {
+  background: rgba(255,255,255,0.06);
+  cursor: default;
+  border: 1px dashed rgba(255,255,255,0.1);
+}
+
+#fireworksCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .top-bar {
+    top: 10px;
+    right: 10px;
+  }
+
+  #loginState {
+    font-size: 0.8rem;
+    padding: 7px 10px;
+  }
+
+  #profileIcon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .auth-popup {
+    right: 10px;
+    top: 62px;
+    width: calc(100vw - 20px);
+  }
+
+  .auth-buttons button,
+  .button-row button,
+  .saved-buttons {
+    width: 100%;
+  }
+
+  .saved-buttons {
+    flex-direction: column;
+  }
+
+  .saved-buttons button {
+    width: 100%;
+  }
+}
