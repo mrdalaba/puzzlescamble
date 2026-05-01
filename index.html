@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PuzzleScramble</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="top-bar">
+    <p id="loginState">Not Logged In</p>
+    <button id="profileIcon" type="button" title="Account">👤</button>
+  </div>
+
+  <div class="page-wrap">
+
+    <div id="authPopup" class="auth-popup hidden">
+      <div class="auth-panel">
+        <h2>Account</h2>
+
+        <div class="auth-fields">
+          <input type="email" id="emailInput" placeholder="Email" />
+          <input type="password" id="passwordInput" placeholder="Password" />
+        </div>
+
+        <div class="auth-buttons">
+          <button id="signUpBtn" type="button">Sign Up</button>
+          <button id="loginBtn" type="button">Login</button>
+          <button id="logoutBtn" type="button">Logout</button>
+        </div>
+
+        <div class="auth-status">
+          <p id="authStatus">Not logged in</p>
+          <p id="premiumStatus" class="premium-off">Free User</p>
+
+          <!-- 🔥 ONLY ADDITION -->
+          <button id="payBtn" class="pay-btn">
+            Unlock Uploads ($2.99/month)
+          </button>
+          <button id="manageBtn">Remove Subscription</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-container">
+      <h1>Puzzle Scramble</h1>
+
+      <div class="top-controls">
+        <div class="control-box">
+          <label for="sizeSelect">Puzzle Size</label>
+          <select id="sizeSelect">
+            <option value="3">3 x 3</option>
+            <option value="4" selected>4 x 4</option>
+            <option value="5">5 x 5</option>
+            <option value="6">6 x 6</option>
+            <option value="7">7 x 7</option>
+            <option value="8">8 x 8</option>
+          </select>
+        </div>
+
+        <div class="control-box">
+          <label for="categorySelect">Choose Category</label>
+          <select id="categorySelect">
+            <option value="all">All Categories</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="nature">Nature</option>
+            <option value="space">Space</option>
+            <option value="animal">Animals</option>
+            <option value="city">Cities</option>
+            <option value="abstract">Abstract</option>
+          </select>
+        </div>
+
+        <div class="control-box">
+          <label for="imageSelect">Choose Background</label>
+          <select id="imageSelect"></select>
+        </div>
+
+        <div class="control-box premium-box locked" id="uploadBox">
+          <label for="uploadImage">Upload Your Own For Best Quality 500x500px</label>
+          <input type="file" id="uploadImage" accept="image/*" />
+          <p class="premium-note" id="uploadNote">Premium required for custom uploads.</p>
+        </div>
+      </div>
+
+      <div class="control-box">
+        <label for="savedImages">Saved Images</label>
+        <select id="savedImages">
+          <option value="">No saved images</option>
+        </select>
+
+        <div class="saved-buttons">
+          <button id="useSavedBtn" type="button">Use Saved</button>
+          <button id="deleteImageBtn" type="button">Delete Selected</button>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button id="startBtn" type="button">Start New Game</button>
+        <button id="shuffleBtn" type="button">Shuffle</button>
+        <button id="solveBtn" type="button">Solve</button>
+      </div>
+
+      <div class="status-bar">
+        <p>Moves: <span id="moveCount">0</span></p>
+        <p id="message">Pick a size and image, then start!</p>
+      </div>
+
+      <div id="puzzleBoard"></div>
+    </div>
+  </div>
+
+  <canvas id="fireworksCanvas"></canvas>
+
+ 
+  <script src="supabase.js"></script>
+
+<script src="config.js"></script>
+<script src="dom.js"></script>
+<script src="state.js"></script>
+<script src="fireworks.js"></script>
+<script src="auth.js"></script>
+<script src="storage.js"></script>
+<script src="image.js"></script>
+<script src="puzzle.js"></script>
+<script src="events.js"></script>
+<script src="start.js"></script>
+</body>
+</html>
